@@ -10,21 +10,17 @@ namespace DynamicExternalResolution
     {
         private static Player _localPlayer = null;
 
-        public static Player getPlayerInstance()
-        {
-            if (_localPlayer != null)
-            {
+        public static Player PlayerInstance {
+            get {
+                if (_localPlayer != null) {
+                    return _localPlayer;
+                }
+                _localPlayer = Singleton<GameWorld>.Instance.MainPlayer;
                 return _localPlayer;
             }
-
-            _localPlayer = Singleton<GameWorld>.Instance.MainPlayer;
-            return _localPlayer;
         }
 
-        public static CameraClass getCameraInstance()
-        {
-            return CameraClass.Instance;
-        }
+        public static CameraClass CameraInstance => CameraClass.Instance;
 
         private void Awake()
         {

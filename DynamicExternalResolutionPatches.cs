@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Aki.Reflection.Patching;
+using SPT.Reflection.Patching;
 using Bsg.GameSettings;
 using Comfort.Common;
 using DynamicExternalResolution.Configs;
@@ -198,7 +198,7 @@ namespace DynamicExternalResolution
 
         private static void SetSuperSampling(float sampling)
         {
-            CameraClass camera = DynamicExternalResolution.getCameraInstance();
+            CameraClass camera = DynamicExternalResolution.CameraInstance;
 
             if (camera != null)
             {
@@ -209,7 +209,7 @@ namespace DynamicExternalResolution
 
         private static void SetAntiAliasing(EAntialiasingMode quality, EDLSSMode dlssMode, EFSR2Mode fsr2Mode)
         {
-            CameraClass camera = DynamicExternalResolution.getCameraInstance();
+            CameraClass camera = DynamicExternalResolution.CameraInstance;
 
             if (camera != null)
             {
@@ -219,7 +219,7 @@ namespace DynamicExternalResolution
 
         private static void SetFSR(EFSRMode fsrMode)
         {
-            CameraClass camera = DynamicExternalResolution.getCameraInstance();
+            CameraClass camera = DynamicExternalResolution.CameraInstance;
 
             if (camera != null)
             {
@@ -229,7 +229,7 @@ namespace DynamicExternalResolution
 
         private static void SetFSR2(EFSR2Mode fsr2Mode)
         {
-            CameraClass camera = DynamicExternalResolution.getCameraInstance();
+            CameraClass camera = DynamicExternalResolution.CameraInstance;
 
             if (camera != null)
             {
@@ -249,7 +249,7 @@ namespace DynamicExternalResolution
             {
                 if (DynamicExternalResolutionConfig.EnableMod.Value)
                 {
-                    Player localPlayer = DynamicExternalResolution.getPlayerInstance();
+                    Player localPlayer = DynamicExternalResolution.PlayerInstance;
 
                     if (localPlayer != null && localPlayer.ProceduralWeaponAnimation != null)
                     {
@@ -280,7 +280,7 @@ namespace DynamicExternalResolution
             [PatchPostfix]
             private static void PatchPostfix()
             {
-                Player localPlayer = DynamicExternalResolution.getPlayerInstance();
+                Player localPlayer = DynamicExternalResolution.PlayerInstance;
 
                 if (localPlayer != null && localPlayer.ProceduralWeaponAnimation != null)
                 {
@@ -299,7 +299,7 @@ namespace DynamicExternalResolution
             [PatchPostfix]
             private static void PatchPostfix()
             {
-                Player localPlayer = DynamicExternalResolution.getPlayerInstance();
+                Player localPlayer = DynamicExternalResolution.PlayerInstance;
 
                 if (localPlayer != null && localPlayer.ProceduralWeaponAnimation != null)
                 {
